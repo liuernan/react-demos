@@ -1,36 +1,50 @@
 // react
 {
-  let number = 0;
   const age = 18;
 
-  const App = (props) => {
-    return (
-      <div className="app" id="virtual-dom">
-        <p>React</p>
-        <p>传给我的 name 是：{props.name}</p>
-        <p>传给我的 age 是：{props.age}</p>
-        <span>{number}</span>
-        <button className="button" id="add" onClick={add}>+1</button>
-        <button className="button" id="minus" onClick={minus}>-1</button>
-      </div>
-    );
-  };
+  // class 组件
+  class App extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        number: 0
+      };
+    }
+
+    add() {
+      this.setState({
+        number: this.state.number + 1
+      });
+    }
+
+    minus() {
+      this.setState({
+        number: this.state.number - 1
+      });
+    }
+
+    render() {
+      return (
+        <div className="app">
+          <p>React</p>
+          <p>传给我的 name 是：{this.props.name}</p>
+          <p>传给我的 age 是：{this.props.age}</p>
+          <span>{this.state.number}</span>
+          <button className="button" id="add" onClick={this.add.bind(this)}>+1</button>
+          <button className="button" id="minus" onClick={this.minus.bind(this)}>-1</button>
+        </div>
+      );
+    }
+  }
 
   const render = () => {
     // create virtual DOM and render it to real DOM
     ReactDOM.render(
-      <App name="刘二男" age={age}/>,
+      <div>
+        <App name="刘二男" age={age}/>
+        <App name="同一个 class 组件的第二次引用，number 各是各的" age={666}/>
+      </div>,
       document.querySelector("#react-app"));
-  };
-
-  // methods
-  const add = () => {
-    number += 1;
-    render();
-  };
-  const minus = () => {
-    number -= 1;
-    render();
   };
 
   render();
