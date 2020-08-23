@@ -6,12 +6,13 @@
 
   const render = () => {
     // create virtual DOM
-    const virtualDOM = h(
-      "div", {className: "app", id: "virtual-dom"},
-      h("p", {}, "React:"),
-      h("span", {}, number),
-      h("button", {className: "button", id: "add-react", onClick: add}, "+1"),
-      h("button", {className: "button", id: "minus-react", onClick: minus}, "-1"));
+    const virtualDOM =
+      <div className="app" id="virtual-dom">
+        <p>React</p>
+        <span>{number}</span>
+        <button className="button" id="add" onClick={add}>+1</button>
+        <button className="button" id="minus" onClick={minus}>-1</button>
+      </div>;
 
     // render
     ReactDOM.render(virtualDOM, document.querySelector("#react-app"));
@@ -35,8 +36,8 @@
 {
   // get DOM elements
   const $output = document.querySelector(".output");
-  const $addButton = document.querySelector("#add");
-  const $minusButton = document.querySelector("#minus");
+  const $addButton = document.querySelector("#add-js");
+  const $minusButton = document.querySelector("#minus-js");
 
   // bind Events
   $addButton.addEventListener("click", () => {

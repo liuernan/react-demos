@@ -10,6 +10,7 @@
 
 <script src="https://cdn.bootcdn.net/ajax/libs/react/16.13.1/umd/react.development.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/0.0.0-0c756fb-f7f79fd/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/6.24.0/babel.js"></script>
 
 <body>
 
@@ -20,13 +21,13 @@
 <div id="plain-app" class="app">
   <p>原生 JS：</p>
   <span class="output">0</span>
-  <button class="button" id="add">+1</button>
-  <button class="button" id="minus">-1</button>
+  <button class="button" id="add-js">+1</button>
+  <button class="button" id="minus-js">-1</button>
 </div>
 
 </body>
 
-<script src="./src/main.js"></script>
+<script type="text/babel" src="src/main.js"></script>
 
 </html>
 <style type="text/css">
