@@ -13,8 +13,11 @@
 
 <body>
 
-<div id="app">
-
+<div id="plain-app" class="app">
+  <p>原生 JS：</p>
+  <span class="output">0</span>
+  <button class="button" id="add">+1</button>
+  <button class="button" id="minus">-1</button>
 </div>
 
 </body>
@@ -22,3 +25,8 @@
 <script src="./src/main.js"></script>
 
 </html>
+<style type="text/css">
+  .app {
+    margin: 50px;
+  }
+</style>
