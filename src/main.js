@@ -35,16 +35,20 @@
 
 // plain JavaScript
 {
+  // get DOM elements
   const $output = document.querySelector(".output");
   const $addButton = document.querySelector("#add");
   const $minusButton = document.querySelector("#minus");
 
+  // bind Events
   $addButton.addEventListener("click", () => {
+    // handling details
     const value = parseInt($output.innerText, 10);
     $output.innerText = (value + 1).toString();
   });
 
   $minusButton.addEventListener("click", () => {
+    // handling details
     const value = parseInt($output.innerText, 10);
     $output.innerText = (value - 1).toString();
   });
