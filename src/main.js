@@ -2,15 +2,21 @@
 {
   let number = 0;
 
-  const render = () => {
-    // create virtual DOM and render it to real DOM
-    ReactDOM.render(
+  const App = () => {
+    return (
       <div className="app" id="virtual-dom">
         <p>React</p>
         <span>{number}</span>
         <button className="button" id="add" onClick={add}>+1</button>
         <button className="button" id="minus" onClick={minus}>-1</button>
-      </div>,
+      </div>
+    );
+  };
+
+  const render = () => {
+    // create virtual DOM and render it to real DOM
+    ReactDOM.render(
+      <App/>,
       document.querySelector("#react-app"));
   };
 
