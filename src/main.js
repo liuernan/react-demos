@@ -1,22 +1,20 @@
 // react
 {
+  const h = React.createElement;
 
   let number = 0;
 
   const render = () => {
     // create virtual DOM
-    const p = React.createElement("p", {}, "React:");
-    const span = React.createElement("span", {}, number);
-    const addButton = React.createElement("button", {className: "button", id: "add-react", onClick: add}, "+1");
-    const minusButton = React.createElement("button", {className: "button", id: "minus-react", onClick: minus}, "-1");
-    const virtualDOM = React.createElement("div", {
-      className: "app",
-      id: "virtual-dom"
-    }, p, span, addButton, minusButton);
+    const virtualDOM = h(
+      "div", {className: "app", id: "virtual-dom"},
+      h("p", {}, "React:"),
+      h("span", {}, number),
+      h("button", {className: "button", id: "add-react", onClick: add}, "+1"),
+      h("button", {className: "button", id: "minus-react", onClick: minus}, "-1"));
 
     // render
-    const $app = document.querySelector("#react-app");
-    ReactDOM.render(virtualDOM, $app);
+    ReactDOM.render(virtualDOM, document.querySelector("#react-app"));
   };
 
   // methods
@@ -29,7 +27,7 @@
     render();
   };
 
-  render()
+  render();
 }
 
 
